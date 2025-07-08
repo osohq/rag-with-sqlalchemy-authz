@@ -1,4 +1,3 @@
-import os
 from oso_cloud import Value
 from dotenv import load_dotenv
 from models import Role, User, UserAssignment

@@ -1,6 +1,7 @@
 import os
 from typing import List
 from dotenv import load_dotenv
+from oso_cloud import Value
 import sqlalchemy_oso_cloud
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, Session
@@ -21,8 +22,7 @@ def setup_db(db_url: str):
 
     session = Session()
     
-    session.execute(text("CREATE EXTENSION IF NOT EXISTS vector;"))
-    session.commit()
+    enable_pgvector_on_neon(session)
 
     Base.metadata.create_all(bind=engine)
 
@@ -61,7 +61,7 @@ def cleanup_db(db_url: str):
     Base.metadata.drop_all(bind=engine)
     print("All model tables dropped successfully!")
 
-def get_authorized_documents(db: Session, user: User, permission: str, prompt: List[int]):
+def get_authorized_documents(db: Session, user: Value, permission: str, prompt: List[int]):
     docs = db.scalars(
         sqlalchemy_oso_cloud.select(Document)
         .order_by(Document.content_embeddings.l2_distance(prompt))
