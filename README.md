@@ -12,7 +12,7 @@ This project demonstrates a chatbot application that enforces document access co
 
 ## Prerequisites
 
-- Python 3.12+
+- Python 3.12.X
 - PostgreSQL database with pgvector extension
 - Oso Cloud account
 - OpenAI API key
