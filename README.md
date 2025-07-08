@@ -30,7 +30,7 @@ This project demonstrates a chatbot application that enforces document access co
    ```
    DATABASE_URL=postgresql://user:pass@host:5432/dbname
    OSO_URL=https://cloud.osohq.com
-   OSO_API_KEY=your_api_key
+   OSO_API_KEY=your_api_key # make sure you use an environment without an active policy
    OPENAI_API_KEY=your_openai_key
    ```
 
