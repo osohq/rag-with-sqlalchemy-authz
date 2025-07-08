@@ -1,0 +1,15 @@
+# One entry per fact signature in your database
+facts:
+  # Ex:
+  # has_relation(Issue:_, parent, Repository:_):
+  has_relation(Document:_, creator, User:_):
+    query: SELECT title, created_by FROM documents
+
+  has_relation(Document:_, department, Department:_):
+    query: SELECT title, department_id FROM documents
+  
+  has_role(User:_, role, Department:_):
+    query: SELECT user_id, department_id FROM user_assignments
+
+  has_permission(User:_, read, Document:_):
+    query: SELECT u.user_id, d.document_id FROM user_assignments u JOIN documents d ON u.department_id = d.department_id WHERE u.user_id = :user_id
