@@ -1,7 +1,5 @@
-
-from dotenv import load_dotenv
 import os
-from openai import OpenAI
+from dotenv import load_dotenv
 from authz import setup_oso
 from chatbot import DemoChatbot
 from db import cleanup_db, setup_db
