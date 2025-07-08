@@ -7,8 +7,19 @@ from sqlalchemy.orm import Session
 
 load_dotenv()
 
+def read_polar_file():
+    try:
+        with open("authorization/main.polar", "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        raise FileNotFoundError("main.polar file not found")
+    except IOError as e:
+        raise IOError(f"Error reading main.polar: {e}")
+
+
 def setup_oso(db: Session):
     oso = get_oso()
+    oso.policy(read_polar_file())
     assignments = db.query(UserAssignment).all()
     roles = db.query(Role).all()
     
