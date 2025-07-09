@@ -43,36 +43,36 @@ user_assignment_data = [
 # George can read document 3, 4, and 5
 # Karen can read document 4 and 5
 
-# Test prompts for each user:
+# Test prompts:
 
 test_prompts = {
     "jane": [
-        "What does Jane think about Jerry's programming skills?", # Should know (doc 1)
-        "What project is Jerry working on?", # Should know (doc 2)
-        "Are Jerry and Karen dating?", # Should NOT know (doc 3)
-        "When is George's birthday?", # Should know (doc 4 - public)
-        "How old is Karen?", # Should NOT know (doc 5)
+        "What does Jane think about Jerry's programming skills?", # Should know
+        "What project is Jerry working on?", # Should know
+        "Are Jerry and Karen dating?", # Should NOT know
+        "When is George's birthday?", # Should know
+        "How old is Karen?", # Should NOT know
     ],
     "jerry": [
-        "What does Jane think about Jerry's programming skills?", # Should NOT know (doc 1)
-        "What project is Jerry working on?", # Should know (doc 2)
-        "Are Jerry and Karen dating?", # Should NOT know (doc 3)
-        "When is George's birthday?", # Should know (doc 4 - public)
-        "How old is Karen?", # Should NOT know (doc 5)
+        "What does Jane think about Jerry's programming skills?", # Should NOT know
+        "What project is Jerry working on?", # Should know
+        "Are Jerry and Karen dating?", # Should NOT know
+        "When is George's birthday?", # Should know
+        "How old is Karen?", # Should NOT know
     ],
     "george": [
-        "What does Jane think about Jerry's programming skills?", # Should NOT know (doc 1)
-        "What project is Jerry working on?", # Should NOT know (doc 2)
-        "Are Jerry and Karen dating?", # Should know (doc 3)
-        "When is George's birthday?", # Should know (doc 4 - public)
-        "How old is Karen?", # Should know (doc 5)
+        "What does Jane think about Jerry's programming skills?", # Should NOT know
+        "What project is Jerry working on?", # Should NOT know
+        "Are Jerry and Karen dating?", # Should know
+        "When is George's birthday?", # Should know
+        "How old is Karen?", # Should know
     ],
     "karen": [
-        "What does Jane think about Jerry's programming skills?", # Should NOT know (doc 1)
-        "What project is Jerry working on?", # Should NOT know (doc 2)
-        "Is Karen dating Jerry?", # Should NOT know (doc 3)
-        "When is George's birthday?", # Should know (doc 4 - public)
-        "How old is Karen?", # Should know (doc 5)
+        "What does Jane think about Jerry's programming skills?", # Should NOT know
+        "What project is Jerry working on?", # Should NOT know
+        "Is Karen dating Jerry?", # Should NOT know
+        "When is George's birthday?", # Should know
+        "How old is Karen?", # Should know
     ]
 }
 

@@ -34,7 +34,7 @@ class DemoChatbot:
     
     def run(self):
         self._print_user_options()
-        user_name = input("Enter a user name: ")
+        user_name = input("Enter a user name: ").lower()
         if user_name == "exit":
             return
         if user_name not in [u.name for u in self.users]:

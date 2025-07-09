@@ -62,10 +62,11 @@ def cleanup_db(db_url: str):
     print("All model tables dropped successfully!")
 
 def get_authorized_documents(db: Session, user: Value, permission: str, prompt: List[int]):
-    docs = db.scalars(
+    documents = db.scalars(
         sqlalchemy_oso_cloud.select(Document)
         .order_by(Document.content_embeddings.l2_distance(prompt))
         .authorized(user, permission)
         .limit(10)
     ).all()
-    return docs
+    return documents
+
