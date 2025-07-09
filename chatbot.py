@@ -24,7 +24,7 @@ class DemoChatbot:
         return self.db.query(User).all()
     
     def _set_user(self, user_name: str):
-        user = [u for u in self.users if u.name == user_name][0]
+        user = [u for u in self.users if u.name.lower() == user_name.lower()][0]
         self.user = Value(type="User", id=user.id)
     
     def _print_user_options(self):
@@ -37,7 +37,7 @@ class DemoChatbot:
         user_name = input("Enter a user name: ").lower()
         if user_name == "exit":
             return
-        if user_name not in [u.name for u in self.users]:
+        if user_name.lower() not in [u.name.lower() for u in self.users]:
             print("Invalid user name")
             return self.run()
         self._set_user(user_name)
