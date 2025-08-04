@@ -1,6 +1,6 @@
 from oso_cloud import Value
 from dotenv import load_dotenv
-from models import Role, User, UserAssignment
+from models import Role, UserAssignment
 from sqlalchemy_oso_cloud import get_oso
 from sqlalchemy.orm import Session
 

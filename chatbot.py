@@ -1,5 +1,4 @@
 from oso_cloud import Oso, Value
-from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from ai import generate_embeddings, generate_response

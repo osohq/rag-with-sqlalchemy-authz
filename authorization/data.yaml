@@ -1,0 +1,39 @@
+facts:
+  has_relation(Department:_, assignments, UserAssignment:_):
+    query: "SELECT departments.id, user_assignments.id AS id_1 \nFROM departments,\
+      \ user_assignments \nWHERE departments.id = user_assignments.department_id"
+  has_relation(Department:_, documents, Document:_):
+    query: "SELECT departments.id, documents.id AS id_1 \nFROM departments, documents\
+      \ \nWHERE departments.id = documents.department_id"
+  has_relation(Document:_, creator, User:_):
+    query: "SELECT documents.id, users.id AS id_1 \nFROM documents, users \nWHERE\
+      \ users.id = documents.created_by"
+  has_relation(Document:_, department, Department:_):
+    query: "SELECT documents.id, departments.id AS id_1 \nFROM documents, departments\
+      \ \nWHERE departments.id = documents.department_id"
+  has_relation(Role:_, assignments, UserAssignment:_):
+    query: "SELECT roles.id, user_assignments.id AS id_1 \nFROM roles, user_assignments\
+      \ \nWHERE roles.id = user_assignments.role_id"
+  has_relation(User:_, assignments, UserAssignment:_):
+    query: "SELECT users.id, user_assignments.id AS id_1 \nFROM users, user_assignments\
+      \ \nWHERE users.id = user_assignments.user_id"
+  has_relation(User:_, documents, Document:_):
+    query: "SELECT users.id, documents.id AS id_1 \nFROM users, documents \nWHERE\
+      \ users.id = documents.created_by"
+  has_relation(UserAssignment:_, department, Department:_):
+    query: "SELECT user_assignments.id, departments.id AS id_1 \nFROM user_assignments,\
+      \ departments \nWHERE departments.id = user_assignments.department_id"
+  has_relation(UserAssignment:_, role, Role:_):
+    query: "SELECT user_assignments.id, roles.id AS id_1 \nFROM user_assignments,\
+      \ roles \nWHERE roles.id = user_assignments.role_id"
+  has_relation(UserAssignment:_, user, User:_):
+    query: "SELECT user_assignments.id, users.id AS id_1 \nFROM user_assignments,\
+      \ users \nWHERE users.id = user_assignments.user_id"
+  is_public(Document:_):
+    query: "SELECT documents.id \nFROM documents \nWHERE documents.is_public"
+sql_types:
+  Department: INTEGER
+  Document: INTEGER
+  Role: INTEGER
+  User: INTEGER
+  UserAssignment: INTEGER

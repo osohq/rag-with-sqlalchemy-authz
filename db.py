@@ -1,7 +1,7 @@
 import os
 from typing import List
 from dotenv import load_dotenv
-from oso_cloud import Value
+from oso_cloud import Value, ParityHandle
 import sqlalchemy_oso_cloud
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, Session
@@ -68,5 +68,12 @@ def get_authorized_documents(db: Session, user: Value, permission: str, prompt: 
         .authorized(user, permission)
         .limit(10)
     ).all()
+    # test code to populate oso migrate
+    all_documents = db.scalars(sqlalchemy_oso_cloud.select(Document))
+    oso = sqlalchemy_oso_cloud.get_oso()
+    for document in all_documents:
+        parity_handle = ParityHandle()
+        parity_handle.expect(document in documents)
+        db.execute(text(oso.authorize_local(user, permission, Value("Document", document.id), parity_handle=parity_handle)))
     return documents
 
